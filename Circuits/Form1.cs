@@ -170,7 +170,7 @@ namespace Circuits
         {
             newGate = new AndGate(0, 0);
         }
-
+           
         /// <summary>
         /// Redraws all the graphics for the current circuit.
         /// </summary>
@@ -214,6 +214,18 @@ namespace Circuits
 
         }
 
+        private void toolStripButtonInput_Click(object sender, EventArgs e)
+        {
+            newGate = new InputSource(0, 0);
+        
+        }
+
+        private void toolStripButtonOutPut_Click(object sender, EventArgs e)
+        {
+            newGate = new OutputLamp(0, 0);
+
+        }
+
 
 
         /// <summary>
@@ -245,36 +257,44 @@ namespace Circuits
         /// <param name="e"></param>
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            //Check if a gate is currently selected
-            if (current != null)
+            //line under was added to make selected only valid if left clicked
+            if (e.Button == MouseButtons.Left)
             {
-                //Unselect the selected gate
-                current.Selected = false;
-                current = null;
-                this.Invalidate();
-            }
-            // See if we are inserting a new gate
-            if (newGate != null)
-            {
-                newGate.MoveTo(e.X, e.Y);
-                gatesList.Add(newGate);
-                newGate = null;
-                this.Invalidate();
-            }
-            else
-            {
-                // search for the first gate under the mouse position
-                foreach (Gate g in gatesList)
+                // Check if a gate is currently selected
+                if (current != null)
                 {
-                    if (g.IsMouseOn(e.X, e.Y))
+                    // Unselect the selected gate
+                    current.Selected = false;
+                    current = null;
+                    this.Invalidate();
+                }
+
+                // See if we are inserting a new gate
+                if (newGate != null)
+                {
+                    newGate.MoveTo(e.X, e.Y);
+                    gatesList.Add(newGate);
+                    newGate = null;
+                    this.Invalidate();
+                }
+                else
+                {
+                    // Search for the first gate under the mouse position
+                    foreach (Gate g in gatesList)
                     {
-                        g.Selected = true;
-                        current = g;
-                        this.Invalidate();
-                        break;
+                        if (g.IsMouseOn(e.X, e.Y))
+                        {
+                            g.Selected = true;
+                            current = g;
+                            this.Invalidate();
+                            break;
+                        }
                     }
                 }
             }
+            
         }
+
     }
 }
+

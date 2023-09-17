@@ -140,7 +140,7 @@ namespace Circuits
         /// </summary>
         /// <param name="x">The x position to move the gate to</param>
         /// <param name="y">The y position to move the gate to</param>
-        public new void MoveTo(int x, int y)
+        public override void MoveTo(int x, int y)
         {
             //Debugging message
             Console.WriteLine("pins = " + pins.Count);

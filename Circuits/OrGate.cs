@@ -38,7 +38,7 @@ namespace Circuits
         }
 
         //please make this work savvy savinu it gotta be different for each gate
-        public void MoveTo(int x, int y)
+        public override void MoveTo(int x, int y)
         {
             //Debugging message
             Console.WriteLine("pins = " + pins.Count);
@@ -50,7 +50,7 @@ namespace Circuits
             pins[0].Y = y + GAP;
             pins[1].X = x - GAP;
             pins[1].Y = y + OrGate.HEIGHT;
-            pins[2].X = x + OrGate.WIDTH + 500;
+            pins[2].X = x + OrGate.WIDTH + 30;
             pins[2].Y = y + OrGate.HEIGHT / 2 + 2;
         }
 

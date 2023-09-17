@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Circuits
 {
+    ///meow
     internal class NotGate : Gate
     {
         public NotGate(int x, int y)
@@ -50,18 +51,20 @@ namespace Circuits
         }
 
         //also make this work lil ...
-        public void MoveTo(int x, int y)
+        public override void MoveTo(int x, int y)
         {
             left = x;
             top = y;
 
-            pins[0].X = x - GAP;
-            pins[0].Y = y + GAP;
-            pins[1].X = x - GAP;
-            pins[1].Y = y + HEIGHT;
+            pins[0].X = x - 15;
+            pins[0].Y = y + 20;
+           /* pins[1].X = x - GAP;
+            pins[1].Y = y + HEIGHT;*/
             //a not gate only has one input ;(((((( 
             pins[2].X = x + WIDTH + 20;
-            pins[2].Y = y + HEIGHT / 2 + 2;
+            pins[2].Y = (y + HEIGHT / 2) + 5;
+
+            
         }
     }
 }
