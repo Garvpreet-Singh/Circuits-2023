@@ -14,7 +14,6 @@ namespace Circuits
     /// The main GUI for the COMPX102 digital circuits editor.
     /// This has a toolbar, containing buttons called buttonAnd, buttonOr, etc.
     /// The contents of the circuit are drawn directly onto the form.
-    /// 
     /// </summary>
     public partial class Form1 : Form
     {
